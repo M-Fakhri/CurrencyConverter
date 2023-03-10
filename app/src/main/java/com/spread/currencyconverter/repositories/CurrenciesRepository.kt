@@ -14,10 +14,11 @@ class CurrenciesRepository(
     private val localDataSource: CurrenciesLocalDataSource,
     private val remoteDataSource: CurrenciesRemoteDataSource
 ) {
-    suspend fun getCurrencies(): DataResult<List<CurrenciesEntity>> {
-        val res = remoteDataSource.fetchCurrencies()
+    suspend fun getCurrencies(currency:String): DataResult<List<CurrenciesEntity>> {
+        val res = remoteDataSource.fetchCurrencies(currency)
         res.onSuccess {
             val currenciesList = it?.rates.toList()
+            Log.e("TAG", "getCurrencies: $currenciesList ", )
             currenciesList.let { c ->
                 localDataSource.insertCurrencies(c.toCurrencies()) }
         }.onError {

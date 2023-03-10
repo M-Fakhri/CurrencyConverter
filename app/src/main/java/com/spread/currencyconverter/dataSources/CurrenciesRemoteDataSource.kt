@@ -6,9 +6,9 @@ import com.spread.currencyconverter.network.NetworkResult
 import com.spread.currencyconverter.network.responseDelegate
 
 class CurrenciesRemoteDataSource(private val api: APIs) {
-    suspend fun fetchCurrencies(): NetworkResult<CurrenciesResponse?> {
+    suspend fun fetchCurrencies(currency: String): NetworkResult<CurrenciesResponse?> {
         return try {
-            responseDelegate(api.getCurrencies())
+            responseDelegate(api.getCurrencies(currency))
         } catch (e: Exception) {
             NetworkResult.Failure("Something Went Wrong")
         }

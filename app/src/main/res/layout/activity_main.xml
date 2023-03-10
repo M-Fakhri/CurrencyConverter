@@ -5,25 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
-
-    <TextView
-        android:id="@+id/label1"
-        android:layout_width="wrap_content"
+    <com.skydoves.powerspinner.PowerSpinnerView
+        android:id="@+id/cSelectedSp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/showing_rate_for_usd"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="FROM Currency"
+        android:padding="10dp"
+        android:textSize="20sp"
+        app:spinner_item_height="46dp"
+        app:spinner_popup_animation="dropdown"
+        app:spinner_popup_elevation="14dp"
+        app:spinner_popup_focusable="true" />
 
     <com.skydoves.powerspinner.PowerSpinnerView
-        android:id="@+id/cSp"
+        android:id="@+id/cCompared"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@id/label1"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/cSelectedSp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="Currency"
+        android:hint="To Currency"
+        android:layout_marginTop="50dp"
         android:padding="10dp"
         android:textSize="20sp"
         app:spinner_item_height="46dp"
@@ -36,9 +41,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/showing_rate_for_usd"
+        android:layout_marginTop="50dp"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cSp" />
+        app:layout_constraintTop_toBottomOf="@+id/cCompared" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

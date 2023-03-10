@@ -5,6 +5,7 @@ import com.spread.currencyconverter.data.database.entities.CurrenciesEntity
 
 class CurrenciesLocalDataSource(private val db: AppDatabase) {
     suspend fun insertCurrencies(currencies: List<CurrenciesEntity>) {
+        db.currenciesDao().clear()
         db.currenciesDao().insertCurrencies(currencies)
     }
 

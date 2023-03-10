@@ -51,12 +51,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun fillSpinner(data: List<CurrenciesEntity>?) {
         val items = data.let { it?.map { s -> s.name } }
-        binding.cSp.setItems(items ?: listOf())
+        binding.cCompared.setItems(items ?: listOf())
+        binding.cSelectedSp.setItems(items ?: listOf())
     }
 
     private fun initViews() {
         binding.apply {
-            cSp.setOnSpinnerItemSelectedListener<String> { _, _, _, item ->
+            cSelectedSp.setOnSpinnerItemSelectedListener<String> { _, _, _, item ->
+                //Send request
+                vm.fetchCurrencies(item)
+            }
+            cCompared.setOnSpinnerItemSelectedListener<String> { _, _, _, item ->
                 label2.text = (vm.currenciesState.value.data?.find { it.name == item }?.value
                     ?: 0.0).toString()
             }

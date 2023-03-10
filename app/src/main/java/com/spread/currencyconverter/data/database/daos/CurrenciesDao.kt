@@ -16,4 +16,7 @@ abstract class CurrenciesDao {
 
     @Query("SELECT * FROM CurrenciesEntity")
     abstract suspend fun getCurrencies(): List<CurrenciesEntity>
+
+    @Query("DELETE FROM CurrenciesEntity")
+    abstract suspend fun clear()
 }

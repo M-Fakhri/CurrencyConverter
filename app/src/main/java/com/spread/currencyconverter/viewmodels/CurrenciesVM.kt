@@ -21,8 +21,8 @@ class CurrenciesVM @Inject constructor(private val currenciesRepository: Currenc
     val currenciesState = _currenciesState.asStateFlow()
 
 
-    fun fetchCurrencies() = viewModelScope.launch {
-        currenciesRepository.getCurrencies().onSuccess { c ->
+    fun fetchCurrencies(currency:String = "USD") = viewModelScope.launch {
+        currenciesRepository.getCurrencies(currency).onSuccess { c ->
             _currenciesState.update { it.successWith(c) }
         }.onError { er ->
             _currenciesState.update { it.failureWith(er) }
