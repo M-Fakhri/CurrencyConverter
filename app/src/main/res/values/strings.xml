@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CurrencyConverter</string>
+    <string name="showing_rate_for_usd">Showing Rate For USD</string>
 </resources>

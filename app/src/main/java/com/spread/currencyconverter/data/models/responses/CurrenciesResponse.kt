@@ -15,7 +15,7 @@ data class CurrenciesResponse(
     @SerializedName("terms_of_use")
     val termsOfUse: String? = null,
     @SerializedName("time_last_update_unix")
-    val timeLastUpdateUnix: Log? = null,
+    val timeLastUpdateUnix: Long? = null,
     @SerializedName("time_last_update_utc")
     val timeLastUpdateUtc: String? = null,
     @SerializedName("time_next_update_unix")
