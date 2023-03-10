@@ -1,6 +1,6 @@
 package com.spread.currencyconverter.network
 
-import android.util.Log
+
 import retrofit2.Response
 
 fun <T> responseDelegate(response: Response<T>): NetworkResult<T?> {
